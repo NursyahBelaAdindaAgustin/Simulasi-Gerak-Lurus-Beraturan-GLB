@@ -1,14 +1,11 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-# Judul di tengah
-st.markdown("""
-<h1 style="text-align:center; margin-bottom:10px;">Simulasi Gerak Lurus Beraturan (GLB) dengan Gedung</h1>
-""", unsafe_allow_html=True)
+st.title("Simulasi Gerak Lurus Beraturan (GLB) dengan Gedung")
 
-# Deskripsi simulasi di tengah, dengan margin bawah agar ada jarak dari simulasi
+# Deskripsi simulasi
 deskripsi = """
-<p style="text-align:center; font-size:16px; color:#555; max-width:800px; margin:auto 0 30px 0;">
+<p style="text-align:center; font-size:16px; color:#555; max-width:800px; margin:auto;">
 Simulasi ini menampilkan gerak lurus beraturan (GLB) sebuah mobil di jalan dengan latar gedung-gedung. 
 Anda dapat mengubah posisi awal dan kecepatan mobil, lalu menekan tombol Mulai untuk melihat mobil bergerak. 
 Grafik posisi terhadap waktu dan kecepatan terhadap waktu akan diperbarui secara real-time.<br>
@@ -27,7 +24,7 @@ html_code = """
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 body { font-family: "Poppins", sans-serif; }
-#simulasi { position: relative; width: 900px; height: 240px; margin: auto; background: linear-gradient(to top, #a8d5e2 70%, #e0f7fa 30%); border: 2px solid #333; border-radius: 10px; overflow: hidden;}
+#simulasi { position: relative; width: 100%; max-width: 960px; height: 240px; margin: auto; background: linear-gradient(to top, #a8d5e2 70%, #e0f7fa 30%); border: 2px solid #333; border-radius: 10px; overflow: hidden;}
 .gedung { position: absolute; bottom: 80px; width: 32px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
 .gedung.dekat { background: linear-gradient(to bottom, #cce5f6, #99c2e6); border: 1px solid #5c90c0; }
 .gedung.sedang { background: linear-gradient(to bottom, #b0cce0, #84a9c6); border: 1px solid #5c80a0; }

@@ -1,11 +1,14 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.title("Simulasi Gerak Lurus Beraturan (GLB) dengan Gedung")
+# Judul di tengah
+st.markdown("""
+<h1 style="text-align:center; margin-bottom:10px;">Simulasi Gerak Lurus Beraturan (GLB) dengan Gedung</h1>
+""", unsafe_allow_html=True)
 
-# Deskripsi simulasi
+# Deskripsi simulasi dengan jarak bawah agar simulasi tidak terlalu menempel
 deskripsi = """
-<p style="text-align:center; font-size:16px; color:#555; max-width:800px; margin:auto;">
+<p style="text-align:center; font-size:16px; color:#555; max-width:800px; margin:auto 0 30px 0;">
 Simulasi ini menampilkan gerak lurus beraturan (GLB) sebuah mobil di jalan dengan latar gedung-gedung. 
 Anda dapat mengubah posisi awal dan kecepatan mobil, lalu menekan tombol Mulai untuk melihat mobil bergerak. 
 Grafik posisi terhadap waktu dan kecepatan terhadap waktu akan diperbarui secara real-time.<br>

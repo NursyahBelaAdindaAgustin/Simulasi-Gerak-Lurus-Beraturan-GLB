@@ -1,14 +1,14 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-# Set layout wide agar simulasi lebih lebar
 st.set_page_config(layout="wide")
-st.title("Simulasi Gerak Lurus Beraturan (GLB) dengan Gedung")
 
+# Judul dengan center + deskripsi
 st.markdown("""
-**Deskripsi:** Simulasi ini menampilkan mobil bergerak lurus dengan kecepatan tetap di depan deretan gedung.  
-**Limit simulasi:** 90 meter (mobil berhenti otomatis ketika mencapai batas).
-""")
+<h1 style="text-align:center;">Simulasi Gerak Lurus Beraturan (GLB) dengan Gedung</h1>
+<p style="text-align:center; margin-top: -10px;">Deskripsi: Simulasi ini menampilkan mobil bergerak lurus dengan kecepatan tetap di depan deretan gedung.<br>
+Limit simulasi: 90 meter (mobil berhenti otomatis ketika mencapai batas).</p>
+""", unsafe_allow_html=True)
 
 # HTML + CSS + JS simulasi
 html_code = """
@@ -20,7 +20,8 @@ html_code = """
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 body { font-family: "Poppins", sans-serif; margin:0; padding:0; }
-#simulasi { position: relative; width: 100%; height: 300px; margin: auto; background: linear-gradient(to top, #a8d5e2 70%, #e0f7fa 30%); border: 2px solid #333; border-radius: 10px; overflow: hidden; }
+/* Tambahkan margin-top agar ada jarak simulasi dari judul */
+#simulasi { position: relative; width: 100%; height: 300px; margin: 30px auto; background: linear-gradient(to top, #a8d5e2 70%, #e0f7fa 30%); border: 2px solid #333; border-radius: 10px; overflow: hidden; }
 .gedung { position: absolute; bottom: 80px; width: 50px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
 .gedung.dekat { background: linear-gradient(to bottom, #cce5f6, #99c2e6); border: 1px solid #5c90c0; }
 .gedung.sedang { background: linear-gradient(to bottom, #b0cce0, #84a9c6); border: 1px solid #5c80a0; }
@@ -50,7 +51,7 @@ button:hover { background: #01579b; }
   <div class="gedung dekat" style="left:0px; height:150px;"></div>
   <script>
     const simulasi=document.currentScript.parentElement;
-    const totalGedung=50; // banyak gedung agar penuh layar
+    const totalGedung=50;
     for(let i=0;i<totalGedung;i++){
       const g=simulasi.children[0].cloneNode(true);
       let tipe=(i%3===0)?'jauh':((i%3===1)?'sedang':'dekat');
@@ -124,7 +125,7 @@ function updateSimulasi(){
     chartKecepatan.data.labels.push(waktu.toFixed(1));
     chartKecepatan.data.datasets[0].data.push(kecepatan);
     chartKecepatan.update();
-    if(posisi>=90) berhenti(); // limit 90 meter
+    if(posisi>=90) berhenti();
 }
 
 function berhenti(){jalan=false; clearInterval(interval);}
@@ -134,4 +135,4 @@ function resetSimulasi(){berhenti(); waktu=posisi=0; mobil.style.left="0px"; koo
 </html>
 """
 
-components.html(html_code, height=800, scrolling=True)
+components.html(html_code, height=850, scrolling=True)
